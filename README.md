@@ -1,0 +1,2 @@
+# omerfarukduran.com
+Personal Website
