@@ -1,0 +1,8 @@
+# Nothing to see here, move along.
+# If you're reading this, you're probably a bot or a curious pentester.
+# Either way, there's nothing for you here.
+
+User-agent: *
+Disallow: /
+
+# Nice try though :)
