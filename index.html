@@ -114,10 +114,10 @@
         .ach-card p { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
 
         /* CERTIFICATES */
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-        .cert-card { background: var(--bg-card); border: 1px solid var(--border); overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; }
+        .cert-grid { display: flex; flex-direction: column; gap: 24px; }
+        .cert-card { background: var(--bg-card); border: 1px solid var(--border); overflow: hidden; transition: all 0.3s; display: grid; grid-template-columns: 380px 1fr; }
         .cert-card:hover { border-color: var(--accent); box-shadow: 0 0 40px var(--accent-dim); transform: translateY(-4px); }
-        .cert-img-wrap { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: #050505; border-bottom: 1px solid var(--border); }
+        .cert-img-wrap { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: #050505; border-right: 1px solid var(--border); }
         .cert-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); display: block; }
         .cert-card:hover .cert-img-wrap img { transform: scale(1.04); }
         .cert-img-fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; background: linear-gradient(135deg, #050505 0%, #0a0a0a 100%); }
@@ -155,7 +155,8 @@
             section { padding: 80px 20px; }
             .about-grid { grid-template-columns: 1fr; gap: 48px; }
             .ach-grid { grid-template-columns: 1fr; }
-            .cert-grid { grid-template-columns: 1fr; }
+            .cert-card { grid-template-columns: 1fr; }
+            .cert-img-wrap { border-right: none; border-bottom: 1px solid var(--border); }
             .contact-links { flex-direction: column; align-items: center; }
             .tree-leaves-inner { padding-left: 44px; }
         }
@@ -379,7 +380,7 @@
                 <div class="cert-content">
                     <div class="cert-issuer">INE Security / eLearnSecurity</div>
                     <h3 class="cert-name">eWPTXv2</h3>
-                    <div class="cert-date">Issued &middot; YYYY</div>
+                    <div class="cert-date">Issued &middot; 2023</div>
                     <p class="cert-desc">Web Application Penetration Tester eXtreme — advanced web application offensive security certification.</p>
                     <a href="https://certs.ine.com/dac0fd71-a9d5-4029-b98a-b131adb6077e#acc.zbv9RId0" target="_blank" rel="noopener" class="cert-verify">Verify &rarr;</a>
                 </div>
@@ -393,7 +394,7 @@
                 <div class="cert-content">
                     <div class="cert-issuer">INE Security / eLearnSecurity</div>
                     <h3 class="cert-name">eMAPT</h3>
-                    <div class="cert-date">Issued &middot; YYYY</div>
+                    <div class="cert-date">Issued &middot; 2023</div>
                     <p class="cert-desc">Mobile Application Penetration Tester — practical iOS &amp; Android offensive security certification.</p>
                     <a href="https://certs.ine.com/2e476927-4a30-4f9a-9855-2e142e965e8e#acc.ETu3swrD" target="_blank" rel="noopener" class="cert-verify">Verify &rarr;</a>
                 </div>
@@ -407,7 +408,7 @@
                 <div class="cert-content">
                     <div class="cert-issuer">CyberWarfare Labs</div>
                     <h3 class="cert-name">MCRTA</h3>
-                    <div class="cert-date">Issued &middot; Jun 2025</div>
+                    <div class="cert-date">Issued &middot; 2025</div>
                     <p class="cert-desc">Multi-Cloud Red Team Analyst — hands-on red team operations across cloud and hybrid environments.</p>
                     <a href="https://labs.cyberwarfare.live/credential/achievement/6854579d0780c3f7d3b851cd" target="_blank" rel="noopener" class="cert-verify">Verify &rarr;</a>
                 </div>
@@ -421,7 +422,7 @@
                 <div class="cert-content">
                     <div class="cert-issuer">The SecOps Group</div>
                     <h3 class="cert-name">CAP</h3>
-                    <div class="cert-date">Issued &middot; YYYY</div>
+                    <div class="cert-date">Issued &middot; 2022</div>
                     <p class="cert-desc">Certified AppSec Practitioner — application security fundamentals and secure development practices.</p>
                     <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXQsFR86rk0jSTQWwzFuUxysboatW6GxkPR8t8vcJzZ%2FDVO+JuZ5EuUZNu0+Se0VWEAMWcIEH019NmTEILXleBng%3D" target="_blank" rel="noopener" class="cert-verify">Verify &rarr;</a>
                 </div>
