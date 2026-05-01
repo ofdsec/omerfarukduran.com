@@ -374,13 +374,13 @@
 
             <div class="cert-card fade-in">
                 <div class="cert-img-wrap">
-                    <img src="ewptx.png" alt="eWPTXv2 Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <img data-cert="ewptx" alt="eWPTXv2 Certificate">
                     <div class="cert-img-fallback">eWPTXv2 — Preview</div>
                 </div>
                 <div class="cert-content">
                     <div class="cert-issuer">INE Security / eLearnSecurity</div>
                     <h3 class="cert-name">eWPTXv2</h3>
-                    <div class="cert-date">Issued &middot; 2023</div>
+                    <div class="cert-date">Issued &middot; YYYY</div>
                     <p class="cert-desc">Web Application Penetration Tester eXtreme — advanced web application offensive security certification.</p>
                     <a href="https://certs.ine.com/dac0fd71-a9d5-4029-b98a-b131adb6077e#acc.zbv9RId0" target="_blank" rel="noopener" class="cert-verify">Verify &rarr;</a>
                 </div>
@@ -388,13 +388,13 @@
 
             <div class="cert-card fade-in">
                 <div class="cert-img-wrap">
-                    <img src="emapt.png" alt="eMAPT Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <img data-cert="emapt" alt="eMAPT Certificate">
                     <div class="cert-img-fallback">eMAPT — Preview</div>
                 </div>
                 <div class="cert-content">
                     <div class="cert-issuer">INE Security / eLearnSecurity</div>
                     <h3 class="cert-name">eMAPT</h3>
-                    <div class="cert-date">Issued &middot; 2023</div>
+                    <div class="cert-date">Issued &middot; YYYY</div>
                     <p class="cert-desc">Mobile Application Penetration Tester — practical iOS &amp; Android offensive security certification.</p>
                     <a href="https://certs.ine.com/2e476927-4a30-4f9a-9855-2e142e965e8e#acc.ETu3swrD" target="_blank" rel="noopener" class="cert-verify">Verify &rarr;</a>
                 </div>
@@ -402,13 +402,13 @@
 
             <div class="cert-card fade-in">
                 <div class="cert-img-wrap">
-                    <img src="mcrta.png" alt="MCRTA Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <img data-cert="mcrta" alt="MCRTA Certificate">
                     <div class="cert-img-fallback">MCRTA — Preview</div>
                 </div>
                 <div class="cert-content">
                     <div class="cert-issuer">CyberWarfare Labs</div>
                     <h3 class="cert-name">MCRTA</h3>
-                    <div class="cert-date">Issued &middot; 2025</div>
+                    <div class="cert-date">Issued &middot; Jun 2025</div>
                     <p class="cert-desc">Multi-Cloud Red Team Analyst — hands-on red team operations across cloud and hybrid environments.</p>
                     <a href="https://labs.cyberwarfare.live/credential/achievement/6854579d0780c3f7d3b851cd" target="_blank" rel="noopener" class="cert-verify">Verify &rarr;</a>
                 </div>
@@ -416,13 +416,13 @@
 
             <div class="cert-card fade-in">
                 <div class="cert-img-wrap">
-                    <img src="cap.png" alt="CAP Certificate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <img data-cert="cap" alt="CAP Certificate">
                     <div class="cert-img-fallback">CAP — Preview</div>
                 </div>
                 <div class="cert-content">
                     <div class="cert-issuer">The SecOps Group</div>
                     <h3 class="cert-name">CAP</h3>
-                    <div class="cert-date">Issued &middot; 2022</div>
+                    <div class="cert-date">Issued &middot; YYYY</div>
                     <p class="cert-desc">Certified AppSec Practitioner — application security fundamentals and secure development practices.</p>
                     <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXQsFR86rk0jSTQWwzFuUxysboatW6GxkPR8t8vcJzZ%2FDVO+JuZ5EuUZNu0+Se0VWEAMWcIEH019NmTEILXleBng%3D" target="_blank" rel="noopener" class="cert-verify">Verify &rarr;</a>
                 </div>
@@ -474,6 +474,25 @@
         document.querySelectorAll('.fade-in').forEach(function(el) { obs.observe(el); });
 
         function toggleBranch(header) { header.parentElement.classList.toggle('open'); }
+
+        // Auto-load certificate images: tries multiple extensions
+        document.querySelectorAll('img[data-cert]').forEach(function(img) {
+            var name = img.dataset.cert;
+            var exts = ['png', 'jpg', 'jpeg', 'webp', 'PNG', 'JPG', 'JPEG'];
+            var idx = 0;
+            function tryNext() {
+                if (idx >= exts.length) {
+                    img.style.display = 'none';
+                    var fb = img.nextElementSibling;
+                    if (fb && fb.classList.contains('cert-img-fallback')) fb.style.display = 'flex';
+                    return;
+                }
+                img.src = name + '.' + exts[idx];
+                idx++;
+            }
+            img.onerror = tryNext;
+            tryNext();
+        });
 
         document.getElementById('hamburger').addEventListener('click', function() {
             document.getElementById('navLinks').classList.toggle('active');
